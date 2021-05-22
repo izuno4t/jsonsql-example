@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>JsonSQL Example</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="http://trentrichardson.com/jsonsql/scripts/jsonsql-0.1.js"></script>
+  <script type="text/javascript">
+	var json = {
+			"data" : [
+				{"name":"香坂健史","kana":"コウサカタケシ","gender":"男","tel":"01941748301","birthday":"1971/03/30"},
+				{"name":"沢井心優","kana":"サワイミユ","gender":"女","tel":"07487807330","birthday":"1979/09/15"},
+				{"name":"松井清香","kana":"マツイサヤカ","gender":"女","tel":"04584368478","birthday":"1988/03/16"},
+				{"name":"大浦千鶴","kana":"オオウラチヅル","gender":"女","tel":"08568520170","birthday":"1985/09/05"},
+				{"name":"石川梨乃","kana":"イシカワリノ","gender":"女","tel":"07840925287","birthday":"1967/11/02"},
+				{"name":"小沢瑞姫","kana":"オザワミズキ","gender":"女","tel":"04325655219","birthday":"1954/02/12"},
+				{"name":"牧美代","kana":"マキミヨ","gender":"女","tel":"07826419380","birthday":"1979/11/13"},
+				{"name":"金谷雪絵","kana":"カナヤユキエ","gender":"女","tel":"07413197251","birthday":"1980/11/19"},
+				{"name":"倉持幸平","kana":"クラモチコウヘイ","gender":"男","tel":"05475267846","birthday":"1986/04/07"},
+				{"name":"本山直人","kana":"モトヤマナオト","gender":"男","tel":"01898131284","birthday":"1993/04/11"},
+				{"name":"稲田信義","kana":"イナダノブヨシ","gender":"男","tel":"07657186377","birthday":"1992/07/03"},
+				{"name":"久野由紀","kana":"ヒサノユキ","gender":"女","tel":"02213369407","birthday":"1992/04/26"},
+				{"name":"梅田由希子","kana":"ウメダユキコ","gender":"女","tel":"07654025719","birthday":"1975/01/09"},
+				{"name":"石沢通夫","kana":"イシザワミチオ","gender":"男","tel":"09573880990","birthday":"1988/12/14"},
+				{"name":"中岡海斗","kana":"ナカオカカイト","gender":"男","tel":"07842798717","birthday":"1984/11/08"},
+				{"name":"平沢歩美","kana":"ヒラサワアユミ","gender":"女","tel":"09289578883","birthday":"1984/08/14"},
+				{"name":"増山亜由美","kana":"マスヤマアユミ","gender":"女","tel":"08813346554","birthday":"1980/10/12"},
+				{"name":"滝幸真","kana":"タキユキマサ","gender":"男","tel":"02273196693","birthday":"1989/05/04"},
+				{"name":"鳥居七郎","kana":"トリイシチロウ","gender":"男","tel":"01873626760","birthday":"1971/10/14"},
+				{"name":"谷本英晴","kana":"タニモトヒデハル","gender":"男","tel":"08890109106","birthday":"1969/03/30"},
+				{"name":"香川博","kana":"カガワヒロシ","gender":"男","tel":"08316590995","birthday":"1954/04/11"},
+				{"name":"小菅雛","kana":"コスゲヒナ","gender":"女","tel":"01833856969","birthday":"1980/09/08"},
+				{"name":"橘十三","kana":"タチバナジュウゾウ","gender":"男","tel":"05548475834","birthday":"1991/07/19"},
+				{"name":"井沢譲","kana":"イサワユズル","gender":"男","tel":"02812529860","birthday":"1966/04/26"},
+				{"name":"渥美肇","kana":"アツミハジメ","gender":"男","tel":"02542214041","birthday":"1969/05/27"},
+				{"name":"大島哲二","kana":"オオシマテツジ","gender":"男","tel":"08662182693","birthday":"1985/05/01"},
+				{"name":"上山祐二","kana":"カミヤマユウジ","gender":"男","tel":"08259986102","birthday":"1977/07/07"},
+				{"name":"大貫鉄男","kana":"オオヌキテツオ","gender":"男","tel":"08864051730","birthday":"1983/08/03"},
+				{"name":"福山優羽","kana":"フクヤマユウ","gender":"女","tel":"08604230567","birthday":"1972/03/13"},
+				{"name":"坪田保男","kana":"ツボタヤスオ","gender":"男","tel":"09502665010","birthday":"1971/07/10"},
+				{"name":"田村涼花","kana":"タムラスズカ","gender":"女","tel":"02419492607","birthday":"1981/03/25"},
+				{"name":"原冨子","kana":"ハラトミコ","gender":"女","tel":"0316853512","birthday":"1984/06/04"},
+				{"name":"堀田節男","kana":"ホッタセツオ","gender":"男","tel":"05222557373","birthday":"1994/02/07"},
+				{"name":"岩沢正記","kana":"イワサワマサキ","gender":"男","tel":"02578878017","birthday":"1965/06/08"},
+				{"name":"佐竹竜也","kana":"サタケタツヤ","gender":"男","tel":"04385890386","birthday":"1961/12/14"},
+				{"name":"井田喬","kana":"イダタカシ","gender":"男","tel":"08747920815","birthday":"1958/04/17"},
+				{"name":"稲村紗彩","kana":"イナムラサアヤ","gender":"女","tel":"05564714184","birthday":"1972/08/10"},
+				{"name":"北岡数也","kana":"キタオカカズヤ","gender":"男","tel":"01812014009","birthday":"1988/11/16"},
+				{"name":"笹本悦子","kana":"ササモトエツコ","gender":"女","tel":"02717036760","birthday":"1964/02/05"},
+				{"name":"大淵亜依","kana":"オオブチアイ","gender":"女","tel":"08903956336","birthday":"1967/08/01"},
+				{"name":"大沢和徳","kana":"オオサワカズノリ","gender":"男","tel":"05463278857","birthday":"1989/07/21"},
+				{"name":"関口駿","kana":"セキグチシュン","gender":"男","tel":"05228733176","birthday":"1962/08/13"},
+				{"name":"松沢祐一郎","kana":"マツザワユウイチロウ","gender":"男","tel":"02383642897","birthday":"1987/11/27"},
+				{"name":"桜田陽和","kana":"サクラダヒヨリ","gender":"女","tel":"07327801547","birthday":"1993/09/21"},
+				{"name":"中根結衣","kana":"ナカネユイ","gender":"女","tel":"08823702440","birthday":"1985/05/03"},
+				{"name":"岩下忠正","kana":"イワシタタダマサ","gender":"男","tel":"01982458645","birthday":"1980/05/15"},
+				{"name":"平原雅俊","kana":"ヒラハラマサトシ","gender":"男","tel":"09520577322","birthday":"1972/02/05"},
+				{"name":"平井琴","kana":"ヒライコト","gender":"女","tel":"09572514950","birthday":"1977/06/03"},
+				{"name":"大野真吉","kana":"オオノシンキチ","gender":"男","tel":"02251648856","birthday":"1979/05/01"},
+				{"name":"柳沢一彦","kana":"ヤナギサワカズヒコ","gender":"男","tel":"02584551305","birthday":"1979/11/05"},
+				{"name":"横田優子","kana":"ヨコタユウコ","gender":"女","tel":"07363940441","birthday":"1984/12/28"},
+				{"name":"小松紗矢","kana":"コマツサヤ","gender":"女","tel":"08282093860","birthday":"1959/09/24"},
+				{"name":"仲村隆","kana":"ナカムラタカシ","gender":"男","tel":"02936000897","birthday":"1959/03/13"},
+				{"name":"松沢花奈","kana":"マツザワハナ","gender":"女","tel":"07562693518","birthday":"1992/03/22"},
+				{"name":"小原詩音","kana":"オハラシオン","gender":"女","tel":"05881152243","birthday":"1985/04/11"},
+				{"name":"野田友治","kana":"ノダトモジ","gender":"男","tel":"07897606404","birthday":"1985/03/06"},
+				{"name":"小菅一博","kana":"コスゲカズヒロ","gender":"男","tel":"02692745278","birthday":"1980/09/18"},
+				{"name":"湯川達夫","kana":"ユカワタツオ","gender":"男","tel":"08896531178","birthday":"1966/02/06"},
+				{"name":"曽根裕平","kana":"ソネユウヘイ","gender":"男","tel":"05911765418","birthday":"1989/12/17"},
+				{"name":"加納陽向","kana":"カノウヒナタ","gender":"女","tel":"02724256147","birthday":"1961/07/14"},
+				{"name":"水谷美由紀","kana":"ミズタニミユキ","gender":"女","tel":"0629401230","birthday":"1963/11/25"},
+				{"name":"住田康司","kana":"スミダコウジ","gender":"男","tel":"01804296195","birthday":"1973/08/02"},
+				{"name":"寺西良吉","kana":"テラニシリョウキチ","gender":"男","tel":"07383603420","birthday":"1960/01/19"},
+				{"name":"立川智恵","kana":"タチカワチエ","gender":"女","tel":"09814668602","birthday":"1986/10/15"},
+				{"name":"安川利佳","kana":"ヤスカワリカ","gender":"女","tel":"05887190166","birthday":"1965/07/27"},
+				{"name":"亀井千佳","kana":"カメイチカ","gender":"女","tel":"09629551206","birthday":"1979/03/15"},
+				{"name":"中塚敏之","kana":"ナカツカトシユキ","gender":"男","tel":"0658173670","birthday":"1982/12/05"},
+				{"name":"磯部伸","kana":"イソベシン","gender":"男","tel":"09940634157","birthday":"1972/06/06"},
+				{"name":"川島萌花","kana":"カワシマモエカ","gender":"女","tel":"07415964664","birthday":"1975/04/26"},
+				{"name":"上野栄子","kana":"アガノエイコ","gender":"女","tel":"0609074334","birthday":"1991/09/01"},
+				{"name":"関根六郎","kana":"セキネロクロウ","gender":"男","tel":"08871297261","birthday":"1972/09/24"},
+				{"name":"増山頼子","kana":"マスヤマヨリコ","gender":"女","tel":"05576388261","birthday":"1964/08/11"},
+				{"name":"伴麻友","kana":"バンマユ","gender":"女","tel":"09578291126","birthday":"1990/08/08"},
+				{"name":"西島七海","kana":"ニシジマナナミ","gender":"女","tel":"08508507023","birthday":"1955/01/31"},
+				{"name":"梅木美結","kana":"ウメキミユ","gender":"女","tel":"07682982221","birthday":"1984/02/10"},
+				{"name":"勝又好一","kana":"カツマタヨシカズ","gender":"男","tel":"04530907504","birthday":"1989/08/22"},
+				{"name":"桜井武雄","kana":"サクライタケオ","gender":"男","tel":"01987114326","birthday":"1975/09/04"},
+				{"name":"倉田梨加","kana":"クラタリカ","gender":"女","tel":"08296679094","birthday":"1967/12/29"},
+				{"name":"白鳥正吾","kana":"シラトリショウゴ","gender":"男","tel":"01730904629","birthday":"1983/10/20"},
+				{"name":"高畑真子","kana":"タカハタマコ","gender":"女","tel":"04598083958","birthday":"1960/11/23"},
+				{"name":"井口博満","kana":"イグチヒロミツ","gender":"男","tel":"02419324944","birthday":"1975/04/13"},
+				{"name":"内村佳乃","kana":"ウチムラヨシノ","gender":"女","tel":"09892798888","birthday":"1993/10/03"},
+				{"name":"野沢弘明","kana":"ノザワヒロアキ","gender":"男","tel":"05264642116","birthday":"1964/11/23"},
+				{"name":"石塚栄吉","kana":"イシツカエイキチ","gender":"男","tel":"01187064560","birthday":"1964/05/02"},
+				{"name":"橋本和茂","kana":"ハシモトカズシゲ","gender":"男","tel":"02424384954","birthday":"1966/08/20"},
+				{"name":"福原貫一","kana":"フクハラカンイチ","gender":"男","tel":"08961240370","birthday":"1969/01/13"},
+				{"name":"鬼頭遥花","kana":"キトウハルカ","gender":"女","tel":"01154654618","birthday":"1983/06/12"},
+				{"name":"豊島清次郎","kana":"トシマセイジロウ","gender":"男","tel":"09968806118","birthday":"1971/10/13"},
+				{"name":"笹原保","kana":"ササハラタモツ","gender":"男","tel":"07576753769","birthday":"1978/10/18"},
+				{"name":"石野邦子","kana":"イシノクニコ","gender":"女","tel":"09289010582","birthday":"1992/11/01"},
+				{"name":"重松小夏","kana":"シゲマツコナツ","gender":"女","tel":"04581871809","birthday":"1991/07/18"},
+				{"name":"瀬戸久典","kana":"セトヒサノリ","gender":"男","tel":"05939387843","birthday":"1954/09/12"},
+				{"name":"堀内広重","kana":"ホリウチヒロシゲ","gender":"男","tel":"02509785683","birthday":"1956/06/27"},
+				{"name":"寺西友和","kana":"テラニシトモカズ","gender":"男","tel":"02209545084","birthday":"1967/01/29"},
+				{"name":"松崎敬二","kana":"マツザキケイジ","gender":"男","tel":"08813029184","birthday":"1988/01/08"},
+				{"name":"水上美琴","kana":"ミズカミミコト","gender":"女","tel":"07645664019","birthday":"1980/09/26"},
+				{"name":"野島健","kana":"ノジマケン","gender":"男","tel":"08856687296","birthday":"1963/08/04"},
+				{"name":"小谷夏希","kana":"コタニナツキ","gender":"女","tel":"09590333982","birthday":"1991/12/31"},
+				{"name":"冨田長蔵","kana":"トミタチョウゾウ","gender":"男","tel":"08866749611","birthday":"1963/10/27"},
+				{"name":"三好真桜","kana":"ミヨシマオ","gender":"女","tel":"07806285338","birthday":"1958/10/06"}
+			]
+		}
+
+    function filter(){
+      var sql = $input = $('input[type=text]').val();
+        $('table').html('');
+        var keys = null;
+        $.each(jsonsql.query(sql, json), function(k, v){
+          if(keys == null){
+            keys = Object.keys(v);
+            var tr = $('<tr></tr>');
+            $.each(keys, function(k0, v0){
+              tr.append('<th>' + v0 + '</th>');
+            });
+            $('table').append(tr);
+          }
+          var tr = $('<tr></tr>');
+          $.each(keys, function(k0, v0){
+            tr.append('<td>' + v[v0] + '</td>');
+          });
+          $('table').append(tr);
+      });
+    }
+    $(function() {
+      var $input = $('input[type=text]');
+      $input.focusout(filter);
+      filter($input.val());
+    });
+    console.log(json);
+  </script>
+  <style type="text/css">
+    table, th, td {
+      border: solid 1px black;
+    }
+  </style>
+</head>
+<body>
+  <h1>JsonSQL</h1>
+  <hr />
+  <input type="text" style="width:80%;height:2em;padding:0.3em;margin-bottom:1em;" value="select * from json.data"/>
+  <div style="width:50%; float:right">
+  	<table></table>
+  </div>
+  <div style="width:50%; float:right">
+  	<table></table>
+  </div>
+
+</body>
+</html>
